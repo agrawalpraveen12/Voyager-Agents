@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Cancelled</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: #ef4444;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .content {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Trip Cancelled</h1>
+        <p>We've cancelled your trip to {{ destination }}</p>
+    </div>
+
+    <div class="content">
+        <p>Your trip has been successfully cancelled. No charges have been made.</p>
+
+        <p><strong>Trip ID:</strong> {{ trip_id }}</p>
+
+        <h3>Would you like to plan a different trip?</h3>
+        <p>We'd love to help you plan your next adventure!</p>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="{{ modify_url }}" class="button">Plan a New Trip</a>
+        </div>
+
+        <p style="color: #666; font-size: 14px;">
+            If you cancelled by mistake, please contact us immediately.
+        </p>
+    </div>
+
+    <div class="footer">
+        <p>AI Trip Planner | Powered by Multi-Agent AI</p>
+        <p>We hope to help you plan your next trip soon!</p>
+    </div>
+</body>
+
+</html>
