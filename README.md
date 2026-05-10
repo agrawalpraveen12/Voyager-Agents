@@ -1,61 +1,112 @@
-# 🌍 Voyager-Agents
+# 🌍 Voyager-Agents: Multi-Agent AI Travel Orchestrator
 
-Voyager-Agents is an enterprise-ready **Multi-Agent AI Travel Orchestrator** designed to create high-fidelity, personalized travel itineraries. Powered by **LangGraph**, **Google Gemini**, and **FastAPI**, it coordinates a team of specialized agents to perform real-time research and planning.
-
----
-
-## 🚀 Key Features
-
-- 🤖 **Multi-Agent Orchestration**: Powered by **LangGraph** for flexible, stateful decision-making.
-- 🔍 **Real-Time Intelligence**: Seamless integration with **Tavily** and **Wikipedia** for up-to-date travel data.
-- ✈️ **Comprehensive Planning**: Automated research for flights, hotels, weather, and local attractions.
-- 📄 **Professional Exports**: Generate beautiful, print-ready PDF itineraries.
-- 🌐 **Modern Architecture**: High-performance **FastAPI** backend coupled with a responsive **Next.js** frontend.
+Voyager-Agents is a state-of-the-art **Autonomous Travel Planning System** that leverages a multi-agent architecture to research, plan, and curate high-fidelity travel itineraries. Unlike simple LLM wrappers, Voyager-Agents employs **LangGraph** to coordinate a team of specialized AI agents, each dedicated to a specific domain of travel logistics.
 
 ---
 
-## 🏗️ Technical Architecture
+## 📸 UI Showcase
 
-The system employs a sophisticated multi-agent workflow:
-
-```mermaid
-flowchart TD
-    Start([User Input]) --> Research[Research Agent]
-    Research --> Places[Places Agent]
-    
-    subgraph ParallelAgents [Parallel Execution]
-        Places --> Flights[Flights Agent]
-        Places --> Hotels[Hotels Agent]
-        Places --> Weather[Weather Agent]
-    end
-    
-    Flights --> Sync[Sync Gate]
-    Hotels --> Sync
-    Weather --> Sync
-    
-    Sync -->|All Data Ready| Activities[Activities Agent]
-    Activities --> Itinerary[Itinerary Agent]
-    Itinerary --> Output([Final Multi-Format Itinerary])
-```
-
-- **Research Agent**: Collects foundational destination intelligence.
-- **Specialized Agents**: Handle parallel lookups for logistics and environment.
-- **Sync Gate**: Ensures data consistency before final synthesis.
-- **Itinerary Agent**: Compiles all verified data into a cohesive, professional travel plan.
+### 🏠 Home Dashboard
+<img src="screenshots/home.png" width="800" alt="Home Screen" />
 
 ---
 
-## 🛠️ Tech Stack & Integration Details
+### 📝 Smart Planning Form
+<img src="screenshots/form.png" width="800" alt="Form Screen" />
 
-- **Backend**: **FastAPI** provides a robust, asynchronous entry point for the frontend, while **LangGraph** manages the complex state and transitions of the multi-agent system.
-- **Frontend**: A sleek **Next.js** interface built with **Tailwind CSS**, featuring dynamic forms and real-time status updates from the AI agents.
-- **AI Intelligence**: Leveraging **Gemini 2.5 Flash** for ultra-fast reasoning and high-fidelity itinerary generation.
-- **Research Tools**:
-  - **Tavily AI**: Optimized for LLM-based web search, providing clean, relevant travel data.
-  - **Wikipedia API**: Supplies rich historical and cultural context for destinations.
-  - **Google Maps**: (Optional) Used for precise location data and distance calculations.
-- **Output Engine**: **ReportLab** and **Markdown-PDF** transform the digital itinerary into professional, printable PDF documents.
-- **State & Communication**: **Redis** for efficient state management and session tracking across the multi-agent workflow.
+---
+
+### 📅 AI-Generated Itinerary
+<img src="screenshots/itinerary.png" width="800" alt="Itinerary Screen" />
+
+---
+
+## 🧠 The Concept: Why Multi-Agent?
+
+Traditional travel planners often provide generic advice or require manual research across dozens of websites. Voyager-Agents solves this by simulating a professional travel agency where specialized "experts" work in parallel:
+1.  **Parallel Execution**: While one agent researches hotels, another looks up flight prices and a third checks the local weather forecast.
+2.  **State Management**: LangGraph ensures that all agents share a unified "Trip State," allowing them to build upon each other's findings.
+3.  **Real-Time Data**: By integrating with Tavily and Wikipedia, the agents access live web data rather than relying solely on the LLM's training data.
+
+---
+
+## 🏗️ Technical Architecture & Agent Roles
+
+The system is built on a modular "Graph" architecture. Each node in the graph represents a specialized AI agent:
+
+### 1. 🔍 The Research Agent
+*   **Role**: The "Scout."
+*   **Action**: Performs deep-dive searches on the destination.
+*   **Output**: Cultural context, local customs, best time to visit, and a high-resolution hero image of the city.
+
+### 2. 🏛️ The Places Agent
+*   **Role**: The "Local Guide."
+*   **Action**: Identifies top-rated attractions and landmarks.
+*   **Output**: A list of must-visit spots with ratings, images, and descriptions.
+
+### 3. ✈️ The Logistics Team (Parallel)
+*   **Flights Agent**: Researches real-time flight options, airlines, and estimated costs from the user's origin.
+*   **Hotels Agent**: Finds premium accommodation options that match the user's budget and interests.
+*   **Weather Agent**: Provides a multi-day forecast to ensure the itinerary matches the climate.
+
+### 4. 🎭 The Activities Agent
+*   **Role**: The "Experience Curator."
+*   **Action**: Cross-references user interests (e.g., "Foodie," "Adventure," "History") with the destination's offerings.
+*   **Output**: A curated list of unique experiences and events.
+
+### 5. ✍️ The Itinerary Agent
+*   **Role**: The "Lead Orchestrator."
+*   **Action**: Synthesizes all data from previous agents into a cohesive, day-by-day Markdown itinerary.
+*   **Output**: A professional report including travel tips, daily schedules, and logistics.
+
+---
+
+## 🛠️ Modern Tech Stack
+
+*   **Orchestration**: **LangGraph** (by LangChain) for managing the complex state machine of AI agents.
+*   **Brain**: **Google Gemini 2.5 Flash** for high-speed, high-context reasoning.
+*   **Backend**: **FastAPI** (Python) for an asynchronous, high-performance API layer.
+*   **Frontend**: **Next.js 14** with **Tailwind CSS** for a premium, dark-mode user experience.
+*   **Search**: **Tavily AI** (Search-as-a-Service) optimized specifically for LLM retrieval.
+*   **Intelligence**: **Wikipedia API** for rich cultural and historical background.
+
+---
+
+## 🔄 The End-to-End Workflow
+
+1.  **User Input**: User provides origin, destination, dates, budget, and interests.
+2.  **Graph Initialization**: The LangGraph starts with the `Research Agent`.
+3.  **Parallel Lookups**: Once the destination is verified, the Logistics Team (Flights, Hotels, Weather) runs simultaneously to save time.
+4.  **Synthesis**: The `Itinerary Agent` takes the massive amount of collected data and distills it into a human-readable format.
+5.  **Multi-Format Export**: The final plan is displayed in the UI and can be exported as a professional PDF.
+
+---
+
+## 🚀 Getting Started
+
+### Backend Setup
+1.  Clone the repository.
+2.  Create a virtual environment: `python -m venv myenv`.
+3.  Install dependencies: `pip install -r requirements.txt`.
+4.  Set up your `.env` with `GOOGLE_API_KEY` and `TAVILY_API_KEY`.
+5.  Run: `python -m uvicorn app.main:app --reload`.
+
+### Frontend Setup
+1.  Navigate to `frontend/`.
+2.  Install dependencies: `npm install`.
+3.  Run: `npm run dev`.
+
+---
+
+## 🧪 Quality Assurance
+
+To ensure the platform's reliability, we have provided a detailed testing manual. If you are a contributor or a tester, please refer to the:
+
+👉 **[Voyager-Agents Testing Guide](./TESTING.md)**
+
+---
+
+🤖 **Voyager-Agents** — *Redefining how the world plans its adventures.*
 
 ---
 
@@ -79,63 +130,6 @@ We are actively working on expanding Voyager-Agents beyond research and planning
 ### 🌍 4. Advanced Personalization
 - **Multi-Language Support**: Itineraries generated in the user's native language.
 - **Community Templates**: Share and discover successful itineraries from other travelers.
-
----
-
-## 📦 Installation & Setup
-
-### 1. Prerequisites
-- Python 3.10+
-- Node.js & npm (for frontend)
-- API Keys: Google Gemini (AI Studio), Tavily, and optionally Google Maps.
-
-### 2. Backend Setup
-```bash
-cd backend
-python -m venv venv
-# Windows:
-.\venv\Scripts\activate
-# Linux/Mac:
-source venv/bin/activate
-
-pip install -r requirements.txt
-```
-
-### 3. Frontend Setup
-```bash
-cd frontend
-npm install
-```
-
-### 4. Configuration
-Create a `.env` file in the root directory (or respective subfolders):
-```ini
-GOOGLE_API_KEY="your_api_key"
-TAVILY_API_KEY="your_api_key"
-# Optional for additional features:
-GOOGLE_MAPS_API_KEY="your_api_key"
-GMAIL_USER="your_email@gmail.com"
-GMAIL_APP_PASSWORD="your_app_password"
-```
-
----
-
-## ▶️ Running the Application
-
-### Start the Backend
-```bash
-cd backend
-uvicorn app.main:app --reload
-```
-*Note: Ensure your FastAPI entry point matches your file structure.*
-
-### Start the Frontend
-```bash
-cd frontend
-npm run dev
-```
-
-The application should now be accessible at `http://localhost:3000`.
 
 ---
 

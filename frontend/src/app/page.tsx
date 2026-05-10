@@ -39,25 +39,27 @@ export default function Home() {
     };
 
     return (
-        <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+        <main className="min-h-screen text-slate-100">
             {/* Header */}
-            <header className="bg-white shadow-sm border-b border-gray-200">
-                <div className="container mx-auto px-4 py-6">
+            <header className="bg-slate-950/50 backdrop-blur-md sticky top-0 z-50 border-b border-slate-800">
+                <div className="container mx-auto px-4 py-4">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                            <div className="p-2 bg-primary-600 rounded-lg">
-                                <Plane className="w-8 h-8 text-white" />
+                            <div className="p-2 bg-indigo-600 rounded-xl shadow-lg shadow-indigo-500/20">
+                                <Plane className="w-7 h-7 text-white" />
                             </div>
                             <div>
-                                <h1 className="text-3xl font-bold bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent">
-                                    AI Trip Planner
+                                <h1 className="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
+                                    Voyager Agents
                                 </h1>
-                                <p className="text-sm text-gray-600">Plan your perfect journey with AI</p>
+                                <p className="text-xs text-slate-400">AI-Powered Travel Intelligence</p>
                             </div>
                         </div>
-                        <div className="hidden md:flex items-center gap-2 text-sm text-gray-600">
-                            <Globe className="w-4 h-4" />
-                            <span>Powered by Multi-Agent AI</span>
+                        <div className="hidden md:flex items-center gap-4 text-xs font-medium">
+                            <div className="flex items-center gap-2 text-slate-400 bg-slate-900 px-3 py-1.5 rounded-full border border-slate-800">
+                                <Globe className="w-3 h-3 text-indigo-400" />
+                                <span>Multi-Agent System</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -68,43 +70,46 @@ export default function Home() {
                 {!trip && !isLoading && (
                     <>
                         {/* Hero Section */}
-                        <div className="text-center mb-12 space-y-4 animate-fade-in">
-                            <h2 className="text-5xl font-bold text-gray-900 leading-tight">
-                                Where would you like to go?
+                        <div className="text-center mb-12 space-y-6 animate-fade-in">
+                            <h2 className="text-5xl md:text-6xl font-extrabold text-white leading-tight tracking-tight">
+                                Where to <span className="text-indigo-500">Next?</span>
                             </h2>
-                            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                                Let our AI agents research, plan, and create your perfect itinerary with
-                                flights, hotels, activities, and more!
+                            <p className="text-xl text-slate-400 max-w-2xl mx-auto font-light">
+                                Let our specialized AI agents orchestrate your perfect journey. Researching flights, hotels, and unique experiences in seconds.
                             </p>
-                            <div className="flex items-center justify-center gap-6 pt-4">
-                                <div className="flex items-center gap-2 text-gray-600">
-                                    <Sparkles className="w-5 h-5 text-yellow-500" />
-                                    <span className="text-sm">Smart Recommendations</span>
+                            <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+                                <div className="flex items-center gap-2 px-4 py-2 bg-slate-900/50 rounded-full border border-slate-800 text-slate-300">
+                                    <Sparkles className="w-4 h-4 text-amber-400" />
+                                    <span className="text-sm font-medium">Smart Planning</span>
                                 </div>
-                                <div className="flex items-center gap-2 text-gray-600">
-                                    <Globe className="w-5 h-5 text-blue-500" />
-                                    <span className="text-sm">Real-time Search</span>
+                                <div className="flex items-center gap-2 px-4 py-2 bg-slate-900/50 rounded-full border border-slate-800 text-slate-300">
+                                    <Globe className="w-4 h-4 text-indigo-400" />
+                                    <span className="text-sm font-medium">Global Reach</span>
                                 </div>
-                                <div className="flex items-center gap-2 text-gray-600">
-                                    <Plane className="w-5 h-5 text-purple-500" />
-                                    <span className="text-sm">Complete Itineraries</span>
+                                <div className="flex items-center gap-2 px-4 py-2 bg-slate-900/50 rounded-full border border-slate-800 text-slate-300">
+                                    <Plane className="w-4 h-4 text-violet-400" />
+                                    <span className="text-sm font-medium">Instant Itineraries</span>
                                 </div>
                             </div>
                         </div>
 
                         {/* Form Card */}
-                        <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl p-8 md:p-12">
+                        <div className="max-w-4xl mx-auto">
                             <TripForm onSubmit={handlePlanTrip} isLoading={isLoading} />
                         </div>
 
                         {/* Error Display */}
                         {error && (
-                            <div className="max-w-4xl mx-auto mt-6 bg-red-50 border border-red-200 rounded-lg p-6 animate-slide-up">
-                                <h3 className="text-red-800 font-semibold mb-2">Error Planning Trip</h3>
-                                <p className="text-red-600">{error}</p>
-                                <p className="text-sm text-red-500 mt-2">
-                                    Make sure the backend server is running on port 8000.
-                                </p>
+                            <div className="max-w-4xl mx-auto mt-6 bg-rose-500/10 border border-rose-500/20 rounded-2xl p-6 animate-slide-up backdrop-blur-sm">
+                                <div className="flex items-start gap-4">
+                                    <div className="p-2 bg-rose-500/20 rounded-lg">
+                                        <Globe className="w-6 h-6 text-rose-400" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-rose-400 font-bold mb-1">Planning Encountered a Hiccup</h3>
+                                        <p className="text-rose-300/80">{error}</p>
+                                    </div>
+                                </div>
                             </div>
                         )}
                     </>
@@ -112,25 +117,25 @@ export default function Home() {
 
                 {/* Loading State */}
                 {isLoading && !trip && (
-                    <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl p-12">
-                        <LoadingState message="Planning your amazing trip..." progress={undefined} />
+                    <div className="max-w-4xl mx-auto bg-slate-900/50 backdrop-blur-md rounded-3xl border border-slate-800 shadow-2xl p-12">
+                        <LoadingState message="Agents are collaborating on your itinerary..." progress={undefined} />
                     </div>
                 )}
 
                 {/* Trip Results */}
                 {trip && !isLoading && (
-                    <div className="max-w-6xl mx-auto space-y-8">
+                    <div className="max-w-6xl mx-auto space-y-10">
                         {/* Success Header */}
                         <div className="text-center space-y-4 animate-fade-in">
-                            <div className="inline-block p-3 bg-green-100 rounded-full">
-                                <Sparkles className="w-12 h-12 text-green-600" />
+                            <div className="inline-block p-4 bg-indigo-500/10 rounded-3xl border border-indigo-500/20 mb-2">
+                                <Sparkles className="w-10 h-10 text-indigo-400" />
                             </div>
-                            <h2 className="text-4xl font-bold text-gray-900">
-                                Your Trip is Ready!
+                            <h2 className="text-4xl font-bold text-white tracking-tight">
+                                Your Adventure Awaits!
                             </h2>
-                            <p className="text-gray-600">
-                                We've planned an amazing {Math.ceil((new Date(trip.end_date).getTime() - new Date(trip.start_date).getTime()) / (1000 * 60 * 60 * 24))}-day
-                                adventure to {trip.destination}
+                            <p className="text-slate-400 text-lg">
+                                Expertly crafted itinerary for your {Math.ceil((new Date(trip.end_date).getTime() - new Date(trip.start_date).getTime()) / (1000 * 60 * 60 * 24))}-day 
+                                getaway to <span className="text-indigo-400 font-semibold">{trip.destination}</span>
                             </p>
                         </div>
 
@@ -141,9 +146,9 @@ export default function Home() {
                         <div className="text-center pt-8">
                             <button
                                 onClick={handlePlanAnother}
-                                className="bg-gradient-to-r from-primary-600 to-primary-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
+                                className="bg-slate-800 hover:bg-slate-700 text-slate-100 font-bold py-4 px-10 rounded-2xl border border-slate-700 shadow-xl transition-all transform hover:scale-[1.02] active:scale-[0.98]"
                             >
-                                Plan Another Trip
+                                Start New Planning
                             </button>
                         </div>
                     </div>
@@ -151,13 +156,22 @@ export default function Home() {
             </div>
 
             {/* Footer */}
-            <footer className="bg-gray-900 text-white mt-20 py-8">
+            <footer className="bg-slate-950/80 border-t border-slate-900 mt-20 py-12">
                 <div className="container mx-auto px-4 text-center">
-                    <p className="text-gray-400">
-                        🤖 Powered by LangGraph Multi-Agent System | Built with FastAPI & Next.js
+                    <div className="flex items-center justify-center gap-2 mb-6">
+                        <div className="w-8 h-px bg-slate-800"></div>
+                        <Plane className="w-5 h-5 text-indigo-500/50" />
+                        <div className="w-8 h-px bg-slate-800"></div>
+                    </div>
+                    <p className="text-slate-400 font-medium">
+                        Voyager Agents Intelligence Platform
                     </p>
-                    <p className="text-gray-500 text-sm mt-2">
-                        Uses: Gemini LLM • Tavily Search • Wikipedia
+                    <p className="text-slate-600 text-sm mt-3 flex items-center justify-center gap-4">
+                        <span>LangGraph Orchestration</span>
+                        <span>•</span>
+                        <span>Multi-Model AI</span>
+                        <span>•</span>
+                        <span>Real-time Travel Data</span>
                     </p>
                 </div>
             </footer>

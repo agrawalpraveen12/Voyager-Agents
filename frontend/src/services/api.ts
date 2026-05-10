@@ -80,6 +80,14 @@ export const downloadTripPDF = async (tripId: string, destination: string): Prom
 };
 
 /**
+ * Initiate a phone call confirmation for a trip
+ */
+export const initiateCall = async (tripId: string): Promise<{ success: boolean; message: string }> => {
+    const response = await api.post(`/booking/initiate-call/${tripId}`);
+    return response.data;
+};
+
+/**
  * Health check
  */
 export const healthCheck = async (): Promise<{ status: string; version: string }> => {

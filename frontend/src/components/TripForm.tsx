@@ -17,7 +17,49 @@ const INDIAN_CITIES = [
     'Ranchi, India', 'Howrah, India', 'Coimbatore, India', 'Jabalpur, India',
     'Gwalior, India', 'Vijayawada, India', 'Jodhpur, India', 'Madurai, India',
     'Raipur, India', 'Kota, India', 'Guwahati, India', 'Chandigarh, India',
-    'Solapur, India', 'Hubli-Dharwad, India'
+    'Solapur, India', 'Hubli-Dharwad, India', 'Bareilly, India', 'Moradabad, India',
+    'Mysore, India', 'Gurgaon, India', 'Aligarh, India', 'Jalandhar, India',
+    'Tiruchirappalli, India', 'Bhubaneswar, India', 'Salem, India', 'Mira-Bhayandar, India',
+    'Warangal, India', 'Guntur, India', 'Bhiwandi, India', 'Saharanpur, India',
+    'Gorakhpur, India', 'Bikaner, India', 'Amravati, India', 'Noida, India',
+    'Jamshedpur, India', 'Bhilai, India', 'Cuttack, India', 'Firozabad, India',
+    'Kochi, India', 'Nellore, India', 'Bhavnagar, India', 'Dehradun, India',
+    'Durgapur, India', 'Asansol, India', 'Rourkela, India', 'Nanded, India',
+    'Kolhapur, India', 'Ajmer, India', 'Akola, India', 'Gulbarga, India',
+    'Jamnagar, India', 'Ujjain, India', 'Loni, India', 'Siliguri, India',
+    'Jhansi, India', 'Ulhasnagar, India', 'Jammu, India', 'Sangli-Miraj & Kupwad, India',
+    'Mangalore, India', 'Erode, India', 'Belgaum, India', 'Kurnool, India',
+    'Ambattur, India', 'Rajahmundry, India', 'Tirunelveli, India', 'Malegaon, India',
+    'Gaya, India', 'Tirupur, India', 'Udaipur, India', 'Kakinada, India',
+    'Davanagere, India', 'Kozhikode, India', 'Maheshtala, India', 'Rajpur Sonarpur, India',
+    'Bokaro, India', 'South Dumdum, India', 'Bellary, India', 'Patiala, India',
+    'Gopalpur, India', 'Agartala, India', 'Bhagalpur, India', 'Muzaffarnagar, India',
+    'Bhatpara, India', 'Panihati, India', 'Latur, India', 'Dhule, India',
+    'Rohtak, India', 'Sagar, India', 'Korba, India', 'Bhilwara, India',
+    'Berhampur, India', 'Muzaffarpur, India', 'Ahmednagar, India', 'Mathura, India',
+    'Kollam, India', 'Avadi, India', 'Kadapa, India', 'Kamarhati, India',
+    'Sambalpur, India', 'Bilaspur, India', 'Shahjahanpur, India', 'Satara, India',
+    'Bijapur, India', 'Rampur, India', 'Shimoga, India', 'Chandrapur, India',
+    'Junagadh, India', 'Thrissur, India', 'Alwar, India', 'Bardhaman, India',
+    'Kulti, India', 'Nizamabad, India', 'Parbhani, India', 'Tumkur, India',
+    'Khammam, India', 'Uzhavarkarai, India', 'Bihar Sharif, India', 'Panipat, India',
+    'Darbhanga, India', 'Bally, India', 'Aizawl, India', 'Dewas, India',
+    'Ichalkaranji, India', 'Karnal, India', 'Bathinda, India', 'Jalna, India',
+    'Eluru, India', 'Barasat, India', 'Kirari Suleman Nagar, India', 'Purnia, India',
+    'Satna, India', 'Mau, India', 'Sonipat, India', 'Farrukhabad, India',
+    'Durg, India', 'Imphal, India', 'Ratlam, India', 'Hapur, India',
+    'Arrah, India', 'Anantapur, India', 'Karimnagar, India', 'Etawah, India',
+    'Ambernath, India', 'North Dumdum, India', 'Bharatpur, India', 'Begusarai, India',
+    'New Delhi, India', 'Gandhidham, India', 'Baranagar, India', 'Tiruvottiyur, India',
+    'Pondicherry, India', 'Katni, India', 'Sambhal, India', 'Rewa, India',
+    'Loni, India', 'Yamunanagar, India', 'Pallavaram, India', 'Karar, India',
+    'Secunderabad, India', 'Bidar, India', 'Burhanpur, India', 'Gandhinagar, India',
+    'Hospet, India', 'Nangloi Jat, India', 'Malad, India', 'Deoghar, India',
+    'Chapra, India', 'Puri, India', 'Haldia, India', 'Khandwa, India',
+    'Morena, India', 'Amroha, India', 'Raichur, India', 'Bhalswa Jahangir Pur, India',
+    'Rishra, India', 'Nadiad, India', 'Panchkula, India', 'Kurichi, India',
+    'Khowai, India', 'Ambikapur, India', 'Alandur, India', 'Thanjavur, India',
+    'Nawada, India', 'Bulandshahr, India', 'Baharampur, India', 'Morbi, India'
 ];
 
 interface TripFormProps {
@@ -101,12 +143,12 @@ export default function TripForm({ onSubmit, isLoading }: TripFormProps) {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-6 animate-fade-in">
+        <form onSubmit={handleSubmit} className="space-y-6 animate-fade-in bg-slate-900/50 p-6 rounded-2xl border border-slate-700 shadow-2xl backdrop-blur-sm">
             {/* Origin & Destination */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                    <label className="flex items-center gap-2 text-sm font-medium text-gray-700">
-                        <MapPin className="w-4 h-4 text-primary-600" />
+                    <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
+                        <MapPin className="w-4 h-4 text-indigo-400" />
                         Origin
                     </label>
                     <input
@@ -114,16 +156,16 @@ export default function TripForm({ onSubmit, isLoading }: TripFormProps) {
                         list="indian-cities"
                         value={formData.origin}
                         onChange={(e) => setFormData({ ...formData, origin: e.target.value })}
-                        placeholder="e.g., London, UK"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                        placeholder="e.g., Delhi, India"
+                        className="w-full px-4 py-3 bg-slate-800 border border-slate-700 text-slate-100 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all placeholder:text-slate-500"
                         disabled={isLoading}
                     />
-                    {errors.origin && <p className="text-red-500 text-sm">{errors.origin}</p>}
+                    {errors.origin && <p className="text-rose-400 text-sm">{errors.origin}</p>}
                 </div>
 
                 <div className="space-y-2">
-                    <label className="flex items-center gap-2 text-sm font-medium text-gray-700">
-                        <MapPin className="w-4 h-4 text-primary-600" />
+                    <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
+                        <MapPin className="w-4 h-4 text-indigo-400" />
                         Destination
                     </label>
                     <input
@@ -131,11 +173,11 @@ export default function TripForm({ onSubmit, isLoading }: TripFormProps) {
                         list="indian-cities"
                         value={formData.destination}
                         onChange={(e) => setFormData({ ...formData, destination: e.target.value })}
-                        placeholder="e.g., Tokyo, Japan"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                        placeholder="e.g., Jaipur, India"
+                        className="w-full px-4 py-3 bg-slate-800 border border-slate-700 text-slate-100 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all placeholder:text-slate-500"
                         disabled={isLoading}
                     />
-                    {errors.destination && <p className="text-red-500 text-sm">{errors.destination}</p>}
+                    {errors.destination && <p className="text-rose-400 text-sm">{errors.destination}</p>}
                 </div>
 
                 <datalist id="indian-cities">
@@ -148,8 +190,8 @@ export default function TripForm({ onSubmit, isLoading }: TripFormProps) {
             {/* Dates */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                    <label className="flex items-center gap-2 text-sm font-medium text-gray-700">
-                        <Calendar className="w-4 h-4 text-primary-600" />
+                    <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
+                        <Calendar className="w-4 h-4 text-indigo-400" />
                         Start Date
                     </label>
                     <input
@@ -157,15 +199,15 @@ export default function TripForm({ onSubmit, isLoading }: TripFormProps) {
                         value={formData.start_date}
                         onChange={(e) => setFormData({ ...formData, start_date: e.target.value })}
                         min={new Date().toISOString().split('T')[0]}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 bg-slate-800 border border-slate-700 text-slate-100 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all [color-scheme:dark]"
                         disabled={isLoading}
                     />
-                    {errors.start_date && <p className="text-red-500 text-sm">{errors.start_date}</p>}
+                    {errors.start_date && <p className="text-rose-400 text-sm">{errors.start_date}</p>}
                 </div>
 
                 <div className="space-y-2">
-                    <label className="flex items-center gap-2 text-sm font-medium text-gray-700">
-                        <Calendar className="w-4 h-4 text-primary-600" />
+                    <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
+                        <Calendar className="w-4 h-4 text-indigo-400" />
                         End Date
                     </label>
                     <input
@@ -173,18 +215,18 @@ export default function TripForm({ onSubmit, isLoading }: TripFormProps) {
                         value={formData.end_date}
                         onChange={(e) => setFormData({ ...formData, end_date: e.target.value })}
                         min={formData.start_date || new Date().toISOString().split('T')[0]}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 bg-slate-800 border border-slate-700 text-slate-100 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all [color-scheme:dark]"
                         disabled={isLoading}
                     />
-                    {errors.end_date && <p className="text-red-500 text-sm">{errors.end_date}</p>}
+                    {errors.end_date && <p className="text-rose-400 text-sm">{errors.end_date}</p>}
                 </div>
             </div>
 
             {/* Budget and Travelers */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                    <label className="flex items-center gap-2 text-sm font-medium text-gray-700">
-                        <DollarSign className="w-4 h-4 text-primary-600" />
+                    <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
+                        <DollarSign className="w-4 h-4 text-indigo-400" />
                         Budget (₹ INR)
                     </label>
                     <input
@@ -194,16 +236,16 @@ export default function TripForm({ onSubmit, isLoading }: TripFormProps) {
                         min={100}
                         max={1000000}
                         step={100}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 bg-slate-800 border border-slate-700 text-slate-100 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all placeholder:text-slate-500"
                         disabled={isLoading}
                         placeholder="Min ₹100"
                     />
-                    <p className="text-xs text-gray-500">Budget-friendly trips from ₹100</p>
+                    <p className="text-xs text-slate-500">Budget-friendly trips from ₹100</p>
                 </div>
 
                 <div className="space-y-2">
-                    <label className="flex items-center gap-2 text-sm font-medium text-gray-700">
-                        <Users className="w-4 h-4 text-primary-600" />
+                    <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
+                        <Users className="w-4 h-4 text-indigo-400" />
                         Number of Travelers
                     </label>
                     <input
@@ -212,20 +254,20 @@ export default function TripForm({ onSubmit, isLoading }: TripFormProps) {
                         onChange={(e) => setFormData({ ...formData, num_travelers: parseInt(e.target.value) || 1 })}
                         min={1}
                         max={20}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 bg-slate-800 border border-slate-700 text-slate-100 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
                         disabled={isLoading}
                     />
                 </div>
 
                 <div className="space-y-2">
-                    <label className="flex items-center gap-2 text-sm font-medium text-gray-700">
-                        <Globe className="w-4 h-4 text-primary-600" />
+                    <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
+                        <Globe className="w-4 h-4 text-indigo-400" />
                         Transport Preference
                     </label>
                     <select
                         value={formData.preferred_transport}
                         onChange={(e) => setFormData({ ...formData, preferred_transport: e.target.value as any })}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all bg-white"
+                        className="w-full px-4 py-3 bg-slate-800 border border-slate-700 text-slate-100 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
                         disabled={isLoading}
                     >
                         <option value="any">Any (Flights, Trains, Buses)</option>
@@ -238,8 +280,8 @@ export default function TripForm({ onSubmit, isLoading }: TripFormProps) {
 
             {/* Interests */}
             <div className="space-y-2">
-                <label className="flex items-center gap-2 text-sm font-medium text-gray-700">
-                    <Sparkles className="w-4 h-4 text-primary-600" />
+                <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
+                    <Sparkles className="w-4 h-4 text-indigo-400" />
                     Your Interests
                 </label>
                 <div className="flex flex-wrap gap-2">
@@ -250,49 +292,49 @@ export default function TripForm({ onSubmit, isLoading }: TripFormProps) {
                             onClick={() => toggleInterest(interest)}
                             disabled={isLoading}
                             className={`px-4 py-2 rounded-full text-sm font-medium transition-all transform hover:scale-105 ${formData.interests.includes(interest)
-                                ? 'bg-primary-600 text-white shadow-md'
-                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-900/20'
+                                : 'bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 hover:border-slate-600'
                                 } ${isLoading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
                         >
                             {interest}
                         </button>
                     ))}
                 </div>
-                {errors.interests && <p className="text-red-500 text-sm">{errors.interests}</p>}
+                {errors.interests && <p className="text-rose-400 text-sm">{errors.interests}</p>}
             </div>
 
             {/* Contact Information */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-gray-100">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-slate-800">
                 <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-700">Email Address</label>
+                    <label className="text-sm font-medium text-slate-300">Email Address</label>
                     <input
                         type="email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="your@email.com"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 bg-slate-800 border border-slate-700 text-slate-100 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all placeholder:text-slate-500"
                         disabled={isLoading}
                     />
-                    {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+                    {errors.email && <p className="text-rose-400 text-sm">{errors.email}</p>}
                 </div>
 
                 <div className="space-y-4">
                     <div className="space-y-2">
-                        <label className="block text-sm font-semibold text-gray-700 flex items-center gap-2">
-                            <Phone className="w-4 h-4 text-primary-600" /> WhatsApp Number
+                        <label className="block text-sm font-semibold text-slate-300 flex items-center gap-2">
+                            <Phone className="w-4 h-4 text-indigo-400" /> WhatsApp Number
                         </label>
                         <input
                             type="tel"
                             placeholder="+91 82799 29101"
-                            className={`w-full px-4 py-3 rounded-xl border ${errors.phone ? 'border-red-500 bg-red-50' : 'border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-200'} transition-all`}
+                            className={`w-full px-4 py-3 bg-slate-800 rounded-xl border ${errors.phone ? 'border-rose-500 bg-rose-500/10' : 'border-slate-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900/50'} text-slate-100 transition-all placeholder:text-slate-500`}
                             value={formData.phone}
                             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, phone: e.target.value })}
                             disabled={isLoading}
                         />
-                        {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
+                        {errors.phone && <p className="text-rose-400 text-sm">{errors.phone}</p>}
                     </div>
 
-                    <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl border border-gray-100">
+                    <div className="flex items-center gap-3 bg-slate-800/50 p-4 rounded-xl border border-slate-700">
                         <label className="flex items-center gap-3 cursor-pointer group w-full">
                             <div className="relative">
                                 <input
@@ -302,10 +344,10 @@ export default function TripForm({ onSubmit, isLoading }: TripFormProps) {
                                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, enablePhoneConfirmation: e.target.checked })}
                                     disabled={isLoading}
                                 />
-                                <div className={`w-10 h-6 rounded-full transition-colors ${formData.enablePhoneConfirmation ? 'bg-primary-600' : 'bg-gray-300'}`}></div>
+                                <div className={`w-10 h-6 rounded-full transition-colors ${formData.enablePhoneConfirmation ? 'bg-indigo-500' : 'bg-slate-600'}`}></div>
                                 <div className={`absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform ${formData.enablePhoneConfirmation ? 'translate-x-4' : ''}`}></div>
                             </div>
-                            <span className="text-sm font-medium text-gray-700 group-hover:text-primary-600 transition-colors">
+                            <span className="text-sm font-medium text-slate-300 group-hover:text-indigo-400 transition-colors">
                                 Enable WhatsApp confirmation
                             </span>
                         </label>
@@ -317,7 +359,7 @@ export default function TripForm({ onSubmit, isLoading }: TripFormProps) {
             <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-gradient-to-r from-primary-600 to-primary-700 text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 transform hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
             >
                 {isLoading ? (
                     <>
